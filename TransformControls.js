@@ -55,7 +55,7 @@ class TransformControls extends Object3D {
 		this.domElement = domElement;
 		this.domElement.style.touchAction = 'none'; // disable touch scroll
 
-		const _gizmo = new TransformControlsGizmo();
+		const _gizmo = new TransformControlsGizmo();  // 操作装置
 		this._gizmo = _gizmo;
 		this.add( _gizmo );
 
