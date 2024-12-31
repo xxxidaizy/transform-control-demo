@@ -936,15 +936,15 @@ class TransformControlsGizmo extends Object3D {
 			DELTA: [
 				[ new Line( TranslateHelperGeometry(), matHelper ), null, null, null, 'helper' ]
 			],
-			X: [
-				[ new Line( lineGeometry, matHelper.clone() ), [ - 1e3, 0, 0 ], null, [ 1e6, 1, 1 ], 'helper' ]
-			],
-			Y: [
-				[ new Line( lineGeometry, matHelper.clone() ), [ 0, - 1e3, 0 ], [ 0, 0, Math.PI / 2 ], [ 1e6, 1, 1 ], 'helper' ]
-			],
-			Z: [
-				[ new Line( lineGeometry, matHelper.clone() ), [ 0, 0, - 1e3 ], [ 0, - Math.PI / 2, 0 ], [ 1e6, 1, 1 ], 'helper' ]
-			]
+			// X: [
+			// 	[ new Line( lineGeometry, matHelper.clone() ), [ - 1e3, 0, 0 ], null, [ 1e6, 1, 1 ], 'helper' ]
+			// ],
+			// Y: [
+			// 	[ new Line( lineGeometry, matHelper.clone() ), [ 0, - 1e3, 0 ], [ 0, 0, Math.PI / 2 ], [ 1e6, 1, 1 ], 'helper' ]
+			// ],
+			// Z: [
+			// 	[ new Line( lineGeometry, matHelper.clone() ), [ 0, 0, - 1e3 ], [ 0, - Math.PI / 2, 0 ], [ 1e6, 1, 1 ], 'helper' ]
+			// ]
 		};
 
 		const gizmoRotate = {
@@ -1459,7 +1459,9 @@ class TransformControlsGizmo extends Object3D {
 
 }
 
-//
+// 主要作用：
+// TransformControlsPlane 的主要作用是提供一个平面，该平面用于捕捉指针事件。当用户在 3D 场景中拖动或旋转对象时，
+// TransformControlsPlane 会根据对象的变换状态更新平面的位置和方向，以确保用户可以正确地在平面上进行操作。
 
 class TransformControlsPlane extends Mesh {
 

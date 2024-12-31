@@ -8,11 +8,22 @@
 TransformControls类：这是主要的控制器类，继承自Three.js的Object3D类。它包含了平移、旋转和缩放的功能，并且可以处理鼠标和触摸事件。
 
 TransformControlsGizmo类：这个类定义了变换控制器中的各种操作手柄（如旋转、平移、缩放手柄），以及它们的几何形状和材质。
+gizmo：装置器（拖拽bar）
+helper: 延长线（可捕捉、拖拽）
+picker: 射线检测工具区域（默认隐藏）
 
-TransformControlsPlane类：这个类定义了一个平面，用于与用户交互，例如在平移模式下，用户可以通过拖动平面来移动对象。
+TransformControlsPlane类：这个类定义了一个平面，该平面用于捕捉指针事件。当用户在 3D 场景中拖动或旋转对象时，TransformControlsPlane 会根据对象的变换状态更新平面的位置和方向，以确保用户可以正确地在平面上进行操作。
+原理分析:
+TransformControlsPlane 的原理基于 Three.js 的射线投射（Raycasting）机制。当用户在 3D 场景中移动鼠标时，TransformControlsPlane 会根据鼠标的位置和方向发射一条射线，以检测射线与平面的交点。如果射线与平面相交，那么用户就可以在平面上进行操作。
+实现步骤：
+1. 创建平面：创建一个平面，该平面的位置和方向由 TransformControls 类自动更新，以确保它始终与变换操作的对象对齐。
+2. 发射射线：当用户在 3D 场景中移动鼠标时，TransformControlsPlane 会根据鼠标的位置和方向发射一条射线。
+3. 检测交点：TransformControlsPlane 使用射线投射机制检测射线与平面的交点。如果射线与平面相交，那么用户就可以在平面上进行操作。
+4. 更新平面：当用户在平面上进行操作时，TransformControlsPlane 会根据用户的操作更新平面的位置和方向，以确保用户可以正确地在平面上进行操作。
 
 用途
 这个变换控制器可以用于3D建模、游戏开发、虚拟现实等场景中，允许用户通过直观的交互方式来操作3D对象，而不需要编写复杂的代码。
+
 
 注意事项
 依赖Three.js：这段代码依赖于Three.js库，因此需要在项目中引入Three.js才能正常运行。
